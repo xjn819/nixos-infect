@@ -29,11 +29,14 @@ makeConf() {
 
   boot.cleanTmpDir = true;
   zramSwap.enable = ${zramswap};
-  networking.hostName = "$(hostname)";
+  networking.hostName = "nixos";
   services.openssh.enable = true;
-  users.users.root.openssh.authorizedKeys.keys = [$(while read -r line; do echo -n "
+  services.openssh.permitRootLogin = "yes";
+  users.users.root.openssh.authorizedKeys.keys =  [$(while read -r line; do echo -n "
     \"$line\" "; done <<< "$keys")
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDUud+i0wsP4ByBrgyz7m7h1Mc5LwmmXUo7pm66ZhmJUN4R/QeqMaBEHGIlmhqvecJopz9tTNGpB8m7WLtcYLyfX5sFdGiMNetQKvDaStJlSxAz/ckqHOkhjVuwH03Lgp2nJNHRvmeIBcL2NuqdPO+rChalVFspvjCiRTXl/p038XeTSaO+5e8kI7IDh2JklDafNP7l8QvxAYdxgbvP0dlQd72HvK+XN9bNp3MFpHdL0w60aPFWjq0avPAcAmG+hRki1+gYPK7oho6bYsxny3UYkfNgppJDfTuQWVDtICux+inxKMEYq9u2ih7MqE9xQoO7w05lGwJd1T6WSx3ZH3R4Kg5t6W5ysBAS9PN9/F030UcKNh9B/cEfPMZGg5yVivQ5f03gpjmvnsWBPOqTbBq7fjNOPEezXWOLMI8n48YQmsNKdYJ2gb/Gab8HJ8P3kz/lccmUCRRCq1WXvqML0W39Fxzdi0j/EkBDd0HyuAysl7tP3ejeMuogNFKkoc3pKn0= xjn@MBP"
   ];
+  users.users.root.password = "password";
 }
 EOF
 
