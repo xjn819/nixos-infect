@@ -64,7 +64,7 @@ and supply to it the following example yaml stanzas:
 #cloud-config
 
 runcmd:
-  - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | PROVIDER=digitalocean NIX_CHANNEL=nixos-22.05 bash 2>&1 | tee /tmp/infect.log
+  - curl https://raw.githubusercontent.com/xjn819/nixos-infect/master/nixos-infect | PROVIDER=digitalocean NIX_CHANNEL=nixos-22.05 bash 2>&1 | tee /tmp/infect.log
 ```
 
 #### Potential tweaks:
