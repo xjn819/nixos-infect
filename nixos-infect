@@ -34,7 +34,7 @@ makeConf() {
   services.openssh.permitRootLogin = "yes";
   users.users.root.openssh.authorizedKeys.keys =  [$(while read -r line; do echo -n "
     \"$line\" "; done <<< "$keys")
-    "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPr1SjxQs3Q9uvVY8WE+zpxOZzA01Sm+W3QpBigh+f8a3zBuw1wxeBxd9p4VgkIcLMkZgs66DOewS+l7dowdomE="
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsk+Tdocox9xvfV6fJ5X2mmbeDzNRwJNuepdzHr0dgF"
   ];
   users.users.root.password = "password";
 }
